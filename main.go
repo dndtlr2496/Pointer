@@ -2,14 +2,17 @@ package main
 
 import "fmt"
 
-func main() {
-	a := 1
-
-	A(&a)
-	fmt.Println(a)
+type A struct {
+	num int
 }
 
-func A(c *int) {
-	fmt.Println(*c)
-	*c++
+func (t *A) Hello() {
+	fmt.Println(t.num)
+	t.num = 7
+}
+
+func main() {
+	a := A{5}
+	a.Hello()
+	fmt.Println(a.num)
 }
